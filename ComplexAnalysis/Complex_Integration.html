@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="main.css">
+<title>Math in Many Words</title>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+  });
+</script>
+<script type="text/javascript" src="../mathjax/MathJax-2.7.2/MathJax.js"></script>
+
+</head>
+
+<body>
+<h5> Notes on Compex Integration </h5>
+<p class="border"> 
+So to review complex numbers are just the cartesian plane or, more definitely the ordered pairs $ (x,y) $ where x and y are real numbers. This can also be expressed as $$x+iy$$ where i is what makes y "complex". The second defining feature of complex numbers is the operations defined on them. Addition and subtraction is as normal with ordered pairs where $(x,y) + (a,b) = (x-a,y-b)$ but the thing that makes complex numbers interesting is how multiplication is defined on them. Instead of a regular dot product between pairs which would give us just the field of $\mathbb{R}^2$ we use this defn of multiplication:
+\[(x,y)\cdot(a,b) = (xa-yb,xb+ya) \]
+This definition imples that $i^2=-1$ which we take as fact from now on. 
+There is lots of work redefining most elementary functions like $e^x$ and trig functions and $log(x)$ to work with this new type of field of numbers but I will skip that since I don't like it. Some important identities and notes
+<div>
+  <ul>
+    <li> complex numbers have polar form like in regular $\mathbb{R}^2$: $x+iy = |x+iy|(cos \theta+isin \theta)$ where $\theta$ is the angle from origin to point $(x,y)$ in $\mathbb{R}^2$, and $|x+iy| = x^2-y^2$  </li>
+    <li> This polar form can also be expressed with $e^x$: $x+iy = |x+iy|(cos(\theta)+isin(\theta)) = |x+iy|e^{i \theta}$ and almost more importantly $e^{ix}x = cosx +isinx $</li>
+    <li> The complex numbers $\mathbb{C}$ don't have an order, as in $x+iy > a+ib$ makes no sense. But we can make an ordering out of their absolute values or modulus' and importantly we get to retain the Triangle Inequality: $|z_1+z_2| \leq |z_1| + |z_2|$. 
+  </ul>
+</div>
+</p>
+
+<p class="defn"> 
+Using The above definitions and identities let's talk about what integrating a function that maps into the complex numbers from a single real variable and, then discuss how to approach integrating a function that maps from complex numbers to the complex numbers.
+<br>
+So integrating from a single real variable into the complex numbers can be considered just like integrating a function into $\mathbb{R}^2$ as in we still just take the values of the function over the space of integration say $[a,b]$ and add them up Reimann sum style to find the "area" under the curve. Necessarily there are two "areas" to find here; the one for the real axis and one for the complex axis if you are thinking graphically. This is a good time to introduce another way of thinking about functions that map into the complex numbers. Consider a function $f$ that maps into the complex numbers from the real numbers
+$$f: \mathbb{R} \rightarrow \mathbb{C}: f(x) = u(x)+iv(x) $$ 
+as we see here we can split our function $f$ into two seperate functions $u$ and $v$ where $u$ represents f's action on the real part of its output and $v$ the complex part. This will come in handy for integrals. Now we can think of the integral of $f:\mathbb{R} \rightarrow \mathbb{C}$ as 
+$$\int f(x)dx = \int u(x)dx + i\int v(x)dx$$ 
+where the integrals on the RHS have the same meaning as in regualar single variable calculus. 
+<br><br>
+So that was pretty simple, but now how do we make sense of integrating a function that maps from $\mathbb{C} \rightarrow \mathbb{C}$? As we discussed above we notice that a function mapping from  $\mathbb{C} \rightarrow \mathbb{C}$ is a lot like a function mapping from  $\mathbb{R} \rightarrow \mathbb{R}$ so why not think about how we integrated there? Recall in multiple variable calculus you would have discussed how since there is no sane ordering to $\mathbb{R}^n$ we can't just say "Okay I integrate on the interval from the point $(x,y,z)$ to the point $(a,b,c)$" as, being in $\mathbb{R}^n$ there are an infinite ways of making that line between them. So as we can't discuss integrating over an interval we will consider integrating over a path, where a path means a piecewise smooth curve, where a cuve is a function that maps from an interval $[a,b] \subset \mathbb{R}$ to $\mathbb{C}$. 
+<br>
+e.g.: $$\gamma: [a,b] \rightarrow \mathbb{C} \text{ by } \gamma (x) = x+ix \text{ is a piecewise smooth curve } $$
+So now we can think about how an integral should work now that we have our area of integration down. We want to integrate over out path (or curve) so we change our variable in what we are integrating over to be the output of our path
+<br> so $\int_{a}^b f(x)dx$ becomes $\int_{0}^1 f(\gamma(t))\gamma'(t)dt$ where $\gamma$ is a piecewise smooth path from a to b. But wait doesn't this leave us open to some very strange consequences like as in any two paths that have the same endpoints and are piecewise smooth have the same integral? That doesn't seem right as we could define one path as a straight line between the two point in 3-D space and another as a long looping, near infinite curve and integrating over them would have the same value? Thankfully no this isn't true. 
+WILL CONTINUE THIS LATER (Check page 106 In Marsden & Hoffman)</p> 
+
+
+
+
+
+
+
+
+</body>

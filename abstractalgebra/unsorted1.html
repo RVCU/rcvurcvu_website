@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Math in Many Words</title>
+<link rel="stylesheet" type="text/css" href="main.css">
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+</head>
+
+
+
+<body>
+<p class="border">
+Let F be a field and \(f \in F[x]\) a polynomial
+</br>
+a) Assume that F has characteristic zero. Prove that \(f'=0\) if and only if f is a constant polynomial
+</br>
+b) Assume that F has a prime characteristic p. Prove that \(f'=0\) if and only if \(f(x) = g(x^p)\) where \(g(x) \in F[x]\)
+</p>
+
+
+
+
+<p class="border">
+a) \(\Rightarrow\) let \(f'=0\) and suppose that \(deg(f)=n \geq 1\) then we must have that there is a term \(a_nx^n\) in f such that \(a_n \neq 0\). Therefore \(n \cdot a_nx^{n-1}\) is in f' and by assumption \(f'=0\) so \(n \cdot a_n = 0\). From this we can deduce $$n \cdot a_n = 0 $$ $$ n \cdot a_n \cdot 1 = 0 \cdot 1$$ $$ n \cdot 1 \cdot a_n = 0 $$ and by assumption \(a_n \neq 0\) so we get that \(n \cdot 1 = 0\) which means characteristic of F is not zero. A contradiction!
+</br>
+\( \Leftarrow \) let f be a constant polynomial. Then f' is cleary 0.
+</p>
+
+
+<p class="border">
+b) 
+let \( f(x) = g(x^p)  \) where p is the prime characteristic of the field F. So f looks like $$f(x)=g(x^p) = a_0 +a_1x^p +...+a_nx^{p \cdot n}$$ for some \(a_i \in F \) then finding the derivative we get that $$f(x)' = g'(x) = p \cdot a_1x^{p-1} + ... + n \cdot p a_nx^{n \cdot p -1}$$ So as each element in f' is multiplied by a multiple of p we get that \(f'=0 \)
+</p>
+
+
+<!--
+<p>
+\(\Rightarrow\) let $$f(x)=a_o+a_1x+...+a_nx^n$$ for some \(a_i \in F\) and let \(f'=0\) then if f is a constant polynomial we can let \( f(x) = g(x) \) and then clearly \( f(x) = g(x^p) \). If f is not a constant polynomial, say \(deg(f)=n \geq 1\) then let $$g(x) = $$
+</p>
+-->
+
+
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="main.css">
+<title>Math in Many Words</title>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+</head>
+
+
+
+<body>
+<h5> Notes on Polynomials over Rings </h5>
+
+<p class="defn">
+Theorem 1 (4.1): Let R be a ring and let x be an indeterminate over R. Then 
+<ul>
+<li> \( R[x] \) is a ring</li>
+<li> x multiplies commutatively with every element in \(R[x]\)</li>
+<li> If R is commutative, then \(R[x]\) is commutative as well</li>
+</ul>
+</p>
+
+<p class="border">
+In this theorem we see that \(R[x]\) the ring of polynomials with coefficients in the field R is also a ring under regular addition and multiplication. To see this more easily let's describe some of the important features of the ring \(R[x]\). The additive identity, multiplicative identity, additive negative of a polynomial \(f \in R[x]\) are respectively the polynomials: 0, 1, \(-f\). 
+</p>
+
+<p class="defn">
+Show that the set < x > \(= \{q(x) \cdot x | q(x) \in R[x] \} \) (the set of all multiples of x in \(R[x] \) ) is an ideal of \(R[x]\) and that \(R[x] / < x > \cong R \)
+</p>
+<p class="border">
+So already we see that we would like to use the ring isomorphism theorem in the end so we begin by showing that < x > is an ideal of \(R[x]\).
+</br> An ideal of \( R[x]\) is a set \(J \subset R[x]\) such that J is a subgroup under addition and has the property that all multiples of elements in J are in J as well. Put formally we want \(jR \subset J \) and \(Rj \subset J\) for all \(j \in J\). So for \( < x > = \{q(x) \cdot x | q(x) \in R[x] \} \) it is clear that by its definition and the commutativity of x that \( < x > \) is an ideal.
+</br>
+Lets define the ring homomorphism \(\phi \) from \( R[x] \rightarrow R\) by \(\phi (f(x)) = a_0 \) where \(a_0 \) is the constant coefficient of \(f(x)\). Now \( < x > \) is an ideal of \( \phi \) as all elements in < x > either have no constant term or is the zero polynomial 0. With the assumption that \( \phi \) is a ring homomorphism we get that  \(R[x] / < x > \cong R \). 
+</p>
+
+<p class="defn">
+Theorem 2 (4.1): Let R be a domain (no zero divisors) then
+</br> 1) \(R[x] \) is a domain
+</br> 2) if \( f(x) \neq 0 \textrm{ and } g(x) \neq 0 \) then \(deg(f(x)g(x)) = degf(x) + deg(g(x) \)
+</br> 3) The units in R[x] are the same as the units in R
+</p>
+
+<p class="border">
+The interesting part of this theorem is the implication that if R is not a domain then there can be zeror divisors in a ring of polynomials. But after consideration this makes sense as choosing our non-domain ring R to be \(Z_4\) and let \(f(x) = 2x \in Z_4 [x] \)  we get that \( 2x \cdot 2x = 4x = 0 \cdot x = 0 \) in \( Z_4 [x]\). 
+</p>
+
+<p class="defn">
+Theorem 3 (4.1): Let R be any ring and let \( f(x) \textrm{ and } g(x) \) be nonzero polynomials in \(R[x] \). If the leading coefficient of either \(f(x) \textrm{ or } g(x) \) is a unit in R, then
+</br> 1) \( f(x)g(x) \neq 0 \) in R[x]
+</br> 2) deg(f(x)g(x)) = deg(f(x)) + deg(g(x))
+</p>
+
+<p class="border">
+If we let \(a_n,b_m\)  be the leading coefficients (hence non-zero) of f(x) and g(x) respectively and without loss of generality assume that \(a_n\) is a unit in R. Now assuming \(f(x) \cdot g(x) = 0 \Rightarrow a_n \cdot b_m = 0 \) as \(a_n\) is a unit we can then multiply the equation by its inverse and get 
+$$ a_n^{-1} \cdot a_n \cdot b_m = a_n^{-1} \cdot 0  $$
+$$ b_m = 0 \textrm{ a contradiction } $$
+The second part is clear by part 1.
+</p>
+
+<p class="defn">
+Theorem 4 (4.1): \( \textbf{Division Algorithm} \), Let R be any ring and let \( f(x), g(x) \in R[x] \). Assume that \(f(x) \neq 0 \) and that the leading coefficient of \(f(x)\) is a unit in R. Then, uniquely determined polynomials \(q(x),r(x) \in R[x]\) such that 
+</br> 1) \(g(x) = q(x) f(x) + r(x) \)
+</br> 2) Either \(r(x) = 0 \textrm{ or } deg(r(x)) < deg(f(x)) \)
+</p>
+
+<p class="border">
+Besides the requirement for the leading coefficient of f(x) to be a unit this is pretty much the same as the division algorithm for the integers and can be used like it. So given any polynomial g we can find a unique representation of g with polynomials f,q and r such that f is non-zero and has a unit eading coefficient and r has degree either less than f (including zero). Which looks like \( g = q f + r\)
+</br> It is important to note that this theorem and the following theorems work much better when R is a commutuative ring as if we want to substitute the indeterminate value x with an element from the ring then if it is not commutative we get a problem with our need that indeterminates should be commutative with the coefficients of the polynomials (which is what allows nice multiplication of polynomials). 
+ </p>
+
+<p class="defn">
+This brings us to an important ring homomorphism called the \(\textbf{Evaluation Mapping}\): Let R be a ring and let \( a \in Z(R) \) define the ring homomorphism by 
+$$\phi_a: R[x] \rightarrow R $$ 
+$$ \textrm{by  } \phi_a(f(x)) = f(a) $$
+it can be seen that \( \phi_a \) is onto by considering the polynomial \( x+(b-a) \in R[x] \) which has property \( \phi_a(x+b-a) =b\quad \forall a \in R \). 
+</br> Note again that if we want to apply the evaluation mapping to any polynomial at any element \( a \in R \) then we need R[x] to be commutative. 
+</p>
+
+<p class="defn">
+Now we consider the kernel of the evaluation mapping at a. Recall a kernel is the values of the domain where the mapping maps to 0.
+$$ker \phi_a = \{f(x) \in R[x] | f(a) = 0 \}$$
+Clearly  \((x-a) \in R[x]\) is in \(\phi_a\) and using the fact that \(\phi_a\) is a homomorphism we get that 
+$$(x-a) \cdot q(x) \in ker \phi_a \quad \forall q(x) \in R[x] $$
+Recall that this is the ideal of \((x-a)\).
+</p>
+
+<p class="defn">
+Theorem 6 (4.1): \(\textbf{Factor Theorem}\): Let R be a commutative ring and let \(f(x) \in R[x] \). If a is an element of R then 
+$$f(a) =0 \Leftrightarrow f(x) = (x-a) q(x) \textrm{ for some q(x) in R[x] }$$
+Note this is the same as saying that the kernel of the evaluation mapping at \(a\) is the ideal \(< x-a >\). Or in symbols \(ker \phi_a = < x-a > = (x-a) q(x) \quad \forall q(x) \in R[x]\) 
+</br> </br>
+This theorem gives us a very useful property of polynomials. They are only 0 at a point a if they can be factored as \( (x-a) \cdot q(x) \). The proof for this fact only uses the division algorithm theorem.
+</br>
+Proof: Let f(a) = 0, now divide f(x) by (x-a)
+$$f(x) = (x-a) q(x) + r(x)$$ Now by the division algorithm \(deg(r(x)) < deg() = 1\) So r(x) must be a constant polynomial or 0. If \(r(x) = b \in R \) Then evaluation of \(f(x) = (x-a) q(x) + b\) at a is b which is a contradiction so \(f(x) = (x-a) q(x) \) as wanted. The converse is clear by letting \( f(x) = q(x) (x-a) \).
+</p>
+
+<p class="defn">
+We get a useful Remark from the proof of the above theorem. If R is a commutative ring and a polynomial \(f(x) \in R[x] \) is divided by (x-a), the remainder is f(a).
+</br> This is clear for polynomials such that \(f(a) = 0\) as then by the above proof the remainder \(r(x) = 0\). If \(f(a) \neq 0\)Then we get \(f(x) = (x-a) q(x) + b \) for some \(b \in R\) and we see that at a 
+$$f(a) = (a-a) q(a) + b = 0 + b = b$$
+</p>
+
+<p class="border">
+Using the division algorithm and the factor Theorem find the multiplicity of 2 as a root of \(f(x) = x^4+5x^3+3x^2+4\)
+</br></br>
+Starting by noticing that f(2) = 0 so f must havea root at 2. Dividing f(x) by (x-2) we get \(f(x) = (x-2) (x^3-x^2+x+2) \). Notice that \(x^3-x^2+x+2\) is 0 at 2 so dividing \(x^3-x^2+x+2\) by (x-2) we get \((x^3-x^2+x+2) = (x-2) (x^2+x+3) \) Now \(x^2+x+3\) is not 0 at 2 so we can stop. 2 has multiplicity 2 and \(f(x)=(x-2)^2 (x^2+x+3)\). 
+</p>
+
+<p class="defn">
+Let R be an integral domain and let f(x) in R[x] with \(f(x) \neq 0 \) and \(deg(f(x)) = n\) Then f(x) has at most n roots in R.
+</p>
+
+<p class="border">
+In an intgral domain we have cancellation and we can use this to show that if there are more roots than degree of the polynomial we get 
+$$a_0 +a_1z = 0 = a_0 + a_1y $$ where z and y are roots of the polynomial \(a_0 + a_1x \)
+$$ a_1(z-y) = 0 \Rightarrow (z-y) = 0$$
+</p>
+
+<p class="defn">
+Theorem 9 (4.1): \(\textbf{Rational Roots Theorem}\)
+Let \( f(x) = a_0 +a_1x+ ... + a_nx^n \)  be a polynomial in \(Z[x]\) with \(a_0 \neq 0\) and \(a_n \neq 0\) then every rational root of f(x) (\(a \in Q \textrm{ such that } f(a) = 0\)). Then every raional root of f(x) has form \(\frac{c}{d}\) where c|\(a_0\) and d|\(a_n\)
+ </p> 
+
+<p class="border">
+This is a cool theorem as it does not seem obvious at all at a first look but using some facts about the greatest common divisor it is very easy to prove.
+</br> </br>
+If \(\frac{c}{d}\) is a root of \(f(x) = a_0 + ... + a_nx^n\) we can assume that gcd(c,d) = 1 or that c and d are relatively prime (I believe we can do this as a polynomial is well defined function so it does not matter the representation of the root). Now we have 
+$$f( \frac{c}{d} = a_0 +a_1(\frac{c}{d}) ... + a_n(\frac{c}{d})^n = 0$$ We can now multiply this identity by \(d^n\) and we get 
+$$a_0d^n +a_1(c d^{n-1}) ... + a_{n-1}c^{n-1}d +a_nc^n = 0$$
+$$-a_0d^n  =  a_1(c d^{n-1}) ... + a_{n-1}c^{n-1}d +a_nc^n $$
+$$-a_0d^n  =  c(a_1( d^{n-1}) ... + a_{n-1}c^{n-2}d +a_nc^{n-1}) $$
+So we have that \(c|a_0d^n\). From our facts about the gcd we have that \(gcd(c,d^n)=1\) as \(gcd(c,d)=1\) So we must have that \(c|a_0\). We can repeat this process to show \(d|a_n\).
+</p>
+<p class="border">
+A consequence of this theorem is that the rational roots of a monic polynomial in \(Z[x]\) are integers
+</p>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

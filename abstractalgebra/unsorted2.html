@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="main.css">
+<title>Math in Many Words</title>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+</head>
+
+
+
+<body>
+<p class="border">
+
+1. Prove that the sum of all elements of a finite field is zero (except for \(F_2\)).
+</p>
+
+
+<p class="border">
+As F is a finite field we have that the characteristic of F must be a prime p and the order of F is \( p^k \) for some \(k \in N\).
+let \(\{a_1,a_2,...,a_{p^n}\}\) be the elements of F and as \(|F| \geq 2\) we can choose an element \(\alpha \neq \{0,1\} \) of F and and so multiplying \(\{a_1,a_2,...,a_{p^n}\}\) by \(\alpha\) gives \(\{\alpha a_1,\alpha a_2,...,\alpha a_{p^n}\}\). Note that this multiplication permutes the elements of \(\{a_1,a_2,...,a_{p^n}\}\) as F is closed under multiplication and if \(\alpha a_i = \alpha a_j \) then by cancellation \( a_i= a_j\). Using this we get 
+$$a_1 + a_2 + ... + a_{p^n} = \alpha a_1 + \alpha + a_2 + ... + \alpha a_{p^n} $$
+$$ 1 + a_2 + ... + a_{p^n} - ( \alpha a_1 + \alpha + a_2 + ... + \alpha a_{p^n}) = 0 $$
+$$(1-\alpha)(1 + a_2 + ... + a_{p^n}) = 0$$
+and as we have that \( \alpha \neq \{0,1\} \) we get that \(1 + a_2 + ... + a_{p^n} = 0\)
+</p>
+
+
+
+</body>
+</html>

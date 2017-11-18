@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="main.css">
+<title>Math in Many Words</title>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+</head>
+
+
+
+<body>
+<p class="defn">
+In the previous chapter (4.1) we saw that polynomials over commutative rings have properties that are similar to the integers like a division algorithm. In this chapter the relation between polynomials and integers is increased by the revelation that integers and polynomials both have unique factorization by primes (holding for certain conditions on the ring).
+</p>
+
+<p class="defn">
+First we define analogy a prime condition for polynomials. For some reason this is not actually called prime but instead called \(\textbf{irreducible}\)
+</br> </br>
+A polynomial f(x) over a field F is called irreducible if 
+</br> 1) \(deg(f(x) \geq 1)\)
+</br> 2) If \(f(x) = q(x)h(x) \) for some \(q(x), h(x) \in F[x]\) then one of q(x) or h(x) must be a constant polynomial (one must have degree 0) 
+</p>
+
+<p class="border">
+All linear polynomials over a field aree irreducible. This can be shown quickly as we have that for domains if \(f(x) = g(x) h(x)\) then \(deg(f(x)) = deg(g(x))+deg(h(x)) \)
+</p>
+
+<p class="defn">
+Theorem 1 (4.2): Let F be a field and consider \(p(x) \in F[x] \) where \(deg(p(x)) \geq 2 \) 
+</br> 1) If p(x) is irreducible over F then p(x) has no root in F
+</br> 2) If \(deg(p(x)) \) is 2 or 3 then p(x) is irreducible over F if and only if it has no root in F
+</p>
+<p class="border">
+so for point 1 we have that a polynomial is irreducible then it has no root in F. This makes sense considering the factor theorem.
+If a polynomial p(x) is irreducible then we cant describe p(x) like \( p(x) = g(x) h(x) \) where g(x) and h(x) have degree greater than 1 and having a root implies that \(f(x)\) can be written as \(f(x) = (x-a) g(x) \) a contradiction.
+</br> </br>
+The second part holds as supposing that p(x) has degree 2 or 3 and has no root then if it has a factorization \(p(x) = g(x) f(x)\) then g and f must not have roots in F as well so \(deg(f(x) \neq 1 \textrm{ and } deg(g(x)) \neq 1\) implying that one of f(x) or g(x) must be 3 as F is a field we have that \(deg(p(x)) = deg(g(x)) + deg(f(x)) \). This implies that one of g(x) or f(x) must have degree zero.
+</p>
+
+<p class="defn">
+1) If \(deg(f(x))=n \geq 1  \), and \(  f(x) \in C[x]\) factors completely as 
+$$f(x) = u (x-u_1)(x-u_2)...(x-u_n)  $$
+where u is the leading coefficient of f(x) and \(u_1,u_2,...,u_n\) are the (not necessarily distinct) roots of f(x) in C[x].
+</p>
+
+<p class="border">
+From this we can see that the only irreducible polynomials in C[x] are linear
+</p>
+
+</body>
+</html>

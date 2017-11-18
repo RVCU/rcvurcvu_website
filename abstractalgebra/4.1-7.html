@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="main.css">
+<title>Math in Many Words</title>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+</head>
+
+
+
+<body>
+<p class="defn">
+Let f(x) and g(x) be non-zero polynomials in R[x] and assume that the leading coefficient of one of them is a unit. Show that \( f(x)g(x) \neq 0 \) and that \( deg(f(x)g(x) = deg(g(x)) + deg(f(x)) \)
+</p>
+
+<p class="border">
+assume that f has a unit as it's leading coefficient. So we write f(x) and g(x) as 
+$$f(x) = a_0 + a_1x + ... + a_nx^n \quad g(x) = b_0 + b_1x + ... + b_mx^m \textrm{ where \(a_n\) is a unit and \(b_m \neq 0\)}$$
+then assume that \(f(x)g(x) = 0\) then 
+$$a_n b_m = 0 \Rightarrow a_n^{-1}a_nb_m = b_m = 0$$ which is a contradiction. This also proves the second part of the question.
+ 
+</body>
+</html>
