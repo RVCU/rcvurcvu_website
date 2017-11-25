@@ -39,17 +39,42 @@ as we see here we can split our function $f$ into two seperate functions $u$ and
 $$\int f(x)dx = \int u(x)dx + i\int v(x)dx$$ 
 where the integrals on the RHS have the same meaning as in regualar single variable calculus. 
 <br><br>
-So that was pretty simple, but now how do we make sense of integrating a function that maps from $\mathbb{C} \rightarrow \mathbb{C}$? As we discussed above we notice that a function mapping from  $\mathbb{C} \rightarrow \mathbb{C}$ is a lot like a function mapping from  $\mathbb{R} \rightarrow \mathbb{R}$ so why not think about how we integrated there? Recall in multiple variable calculus you would have discussed how since there is no sane ordering to $\mathbb{R}^n$ we can't just say "Okay I integrate on the interval from the point $(x,y,z)$ to the point $(a,b,c)$" as, being in $\mathbb{R}^n$ there are an infinite ways of making that line between them. So as we can't discuss integrating over an interval we will consider integrating over a path, where a path means a piecewise smooth curve, where a cuve is a function that maps from an interval $[a,b] \subset \mathbb{R}$ to $\mathbb{C}$. 
+So that was pretty simple, but now how do we make sense of integrating a function that maps from $\mathbb{C} \rightarrow \mathbb{C}$? As we discussed above we notice that a function mapping from  $\mathbb{C} \rightarrow \mathbb{C}$ is a lot like a function mapping from  $\mathbb{R}^2 \rightarrow \mathbb{R}^2$ so why not think about how we integrated there? Recall in multiple variable calculus you would have discussed how since there is no sane ordering to $\mathbb{R}^n$ we can't just say "Okay I integrate on the interval from the point $(x,y,z)$ to the point $(a,b,c)$" as, being in $\mathbb{R}^n$ there are an infinite ways of making that line between them. So as we can't discuss integrating over an interval we will consider integrating over a path, where a path means a piecewise smooth curve, where a cuve is a function that maps from an interval $[a,b] \subset \mathbb{R}$ to $\mathbb{C}$. 
 <br>
 e.g.: $$\gamma: [a,b] \rightarrow \mathbb{C} \text{ by } \gamma (x) = x+ix \text{ is a piecewise smooth curve } $$
 So now we can think about how an integral should work now that we have our area of integration down. We want to integrate over out path (or curve) so we change our variable in what we are integrating over to be the output of our path
-<br> so $\int_{a}^b f(x)dx$ becomes $\int_{0}^1 f(\gamma(t))\gamma'(t)dt$ where $\gamma$ is a piecewise smooth path from a to b. But wait doesn't this leave us open to some very strange consequences like as in any two paths that have the same endpoints and are piecewise smooth have the same integral? That doesn't seem right as we could define one path as a straight line between the two point in 3-D space and another as a long looping, near infinite curve and integrating over them would have the same value? Thankfully no this isn't true. 
-WILL CONTINUE THIS LATER (Check page 106 In Marsden & Hoffman)</p> 
+<br> so $\int_{a}^b f(x)dx$ becomes $\int_{0}^1 f(\gamma(t))\gamma'(t)dt$ where $\gamma$ is a piecewise smooth path from a to b. 
+<br>
+<br>
+From this definition we can get some of our favourite results from Real Analysis for free namely,
+<ul>
+  <li> $\int_{\gamma} c_1 f + c_2g = c_1\int_{\gamma} + c_2\int_{\gamma}g$</li>
+  <li> $\int_{-\gamma}f = -\int_{gamma}f$</li>
+  <li> $\int_{\gamma_1 + \gamma_2}f = \int_{\gamma_1}f + \int_{\gamma_2}f$</li>
+</ul>
+</p>
 
-
-
-
-
+<p class="border">
+These are all great and we can see that complex path integration make a lot of sense; integrals of functions that are multiplied by scalars should necessarily multiply the integral, going along the reflection or negative of the path should flip the sign of the integral and two path that can be joined to one big path should have the same integral in both iterations.
+<br>
+Now probably a natural question about complex path integration is how do we deal with the fact that there are paths that can be identical in path but just go that path at different rates? As in $\gamma$ might traverse a certain path from point a to point b in $\mathbb{C}$ very quickly like only taking the interval $[0,1]$ as its domain, whereas there could exist a path that travels the same path but just takes the domain $[0,10]$ to do so. Shouldn't the integrals over these paths be the same no matter the difference of "speed" of travelling the path? Turns out this intuition is true. The formal statement is 
+<br> <br> 
+Prop: If $\gamma$ is a piecewise smooth path $\gamma: [a,b] \rightarrow \mathbb{C}$ and $g:[c,d] \rightarrow [a,b]$ is smooth and strictly increasing then 
+$$\int_{\gamma}f = \int_{\gamma \circ g}f$$
+for any continuous f defined on $\gamma([a,b])$. 
+<br> <br>
+Now just like in Real analysis if we have a continuous function (continuous implies not infinite at any point) then we can get an upper bound on the value of the integral over a domain. This turns out to be true for complex analysis as well just taking the length of the path instead the length of the interval.
+<br>
+Prop: Let A be open and $f:A \rightarrow \mathbb{C}$ be continuous and let $\gamma$ be a path that is p-wise smooth contained in A. Suppose further that for all point $z \in \gamma$ that $|f(z)| \leq M$ for some $M>0$ then 
+$$|\int_{\gamma}f| \leq M\text{length}(\gamma)$$
+<br>
+Now you remember what makes calculus easy in one variable? It all boils down to just evaluating the anti-derivatives at the endpoints. Turns out we have this for complex integration as well!
+<br> 
+THEOREM: Suppose that $\gamma$ is a piecewise smooth path from $z_1$ to $z_2$, and suppose that F is defined and holomorphic on an open set containing $\gamma$ Suppose also so that F' is continuous, Then
+$$\int_{\gamma} F' = F(z_2)-F(z_1)$$
+This is actually very easy to prove. Just evaluate the integral of F' on path $\gamma$ and you can rearrange to find that $\int_{\gamma}F' = F\circ \gamma(b) - F \circ \gamma(a)= F(z_2)-F(z_1)$ (by )
+<br>
+As a direct consequence of this theorem we see that any closed path where we have the above properties we have that the integral about this closed path will be 0 as a closed path begins and ends on the same point.
 
 
 

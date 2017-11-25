@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="main.css">
+<title>Math in Many Words</title>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+  });
+</script>
+<script type="text/javascript" src="../mathjax/MathJax-2.7.2/MathJax.js"></script>
+
+</head>
+
+<body>
+<h5> Notes on Cauchys Theroem </h5>
+<p class="border"> 
+So from notes on complex integration we covered how integration on complex functions is like path integrals for functions on $\mathbb{R}^2$ To summarize some of the important facts we learn we will INVOKE THE PATH INDEPENDENCE THEOREM
+<br>
+THEOREM: Let D be open and connected (a domain) then suppose that $f:D \rightarrow \mathbb{C}$ is continuous then The following are equivalent
+<ul>
+	<li>1. There exists a $F:D \rightarrow \mathbb{C}$ that is holomorphic such that $F'=f$</li> 
+	<li>2. For all closed paths $\gamma \in D$ we have that $\int_{\gamma}f = 0$ </li>
+	<li>3. For all points $z_0,z_1 \in D$ and for all p-wise smooth paths $\gamma,\tau \in D$ from $z_0 \rightarrow z_1$ we have $\int_{\gamma}f = \int_{\tau}f$	</li>
+</ul>
+<p class="defn">
+number 2 there is pretty nuts if you think about it, just having that all closed path integrals are 0 gives that ALL paths that connect two points give the same integral. This follows from having closed path integrals being =0 then we can construct a closed path from $z_0 \rightarrow z_0$ by connecting the two paths between $z_0 \rightarrow z_1$ $\gamma$ and $\tau$. This forms a closed loop around which equals 0 which leads to them being identical.
+<br> <br>
+
+Now to introduce Cauchy's Integral Theorem. This theorem concerns integrating around closed loops. I will now introduce the result and then I will go step by step through the necessary "machinery" that makes proving this possible. 
+<br>
+<br>
+Cauchy's Theorem (For Star-shaped regions): Let D be a star-shaped region and let $f:D \rightarrow \mathbb{C}$ be holomorphic. Then for any closed path $\gamma$ in D, 
+$$\int_{\gamma}f =0$$ 
+The idea to proving this result will be to pick a point $z_0 \in D$ about which it is star shaped and then by defining a $F$ as $F(z) = int_{[z_0 \rightarrow z]}f(w)dw$ Which should give us $F'=f$ so we can then use the PATH INDEPENDENCE THEOREM above (specifically number 1) to show the result is true.
+<br> <br>
+This is a little hard to tackle directly and we should try to prove some other things that will make it neater first.
+First let's try to prove this result around a more concrete path shape like a triangle which we can then use to prove the original result.
+<br> <br>
+ A triangle T is a path between three points, not linear dependent, of the form $[z_0 \rightarrow z_1] + [z_1 \rightarrow z_2] + [z_2 \rightarrow z_0]$.
+We will skip the proof of this result but we can put an upper bound on a continuous function over a triangle more precisely than the one we proved for general paths. 
+<br>
+LEMMA: Let D be a domain and let $f:D \rightarrow \mathbb{C}$ be holomorphic. Then for all $z_0 \in D$, and $\forall \epsilon > 0$, $\exists \delta > 0$ such that for $B_{\delta}z_0 \subset D$ and for all triangles within that ball $T \subset B_{\delta}(z_0)$
+$$|\int_{T}f(z)dz| \leq \epsilon l(T) sup_{z \in T}{|z-z_0|}$$
+We use this result to prove the corresponding Cauchy theorem for Triangular paths.
+<br>
+THEOREM (CIT FOR TRIANGLES): suppose that $f$ is holomorphic on a domain D, suppose that $T_0$ is a triangle with convex hull about $T_0$ being inside D ($co(T_0) \subset D$ then $\int_{T_0}f=0$ 
+<br>
+So I definitely won't prove this as its a lot to type but the general idea is that we can split up any triangle within D into 4 equal triangles internally and assuming $\int_{T}f=c \neq 0 $ we get that one of these 4 triangles must have integral value greater than or equal to $frac{c}{4}$ (This is shown by looking carefully at the paths about the smaller triangles within the big triangle) and continuing this splitting process of the triangles  and subtriangles you get that
+$$|int_{T_n}f| \geq \frac{1}{4^n}|c|$$ which contradicts our lemma about upper bounds for triangle pathed integrals! Leading to a contradiction meaning
+$$\int_{T}f=0$$
+as we wanted to show.
+<br> 
+This is great now we can use this to prove the general case.
+<br><br>
+Proof of general case(Cauchys theorem):
+defining $F(z)= \int_{[z_0 \rightarrow z]}f(w)dw$ where $z_0$ is in D and is star-shaped about it. We want to show that $F'(z_1)=f(z_1), \forall z \in D$
+<br>
+i.e. $lim_{z \rightarrow z_1} \frac{F(z)-F(z_1)}{z-z_1}=f(z_1)$
+<br>
+Looking at The numerator $F(z)-F(z_2) = \int_{[z_0 \rightarrow z]}f - \int_{[z_0 \rightarrow z_1]}f$
+<br>
+$= \int_{T}f - $
+</body>
+
