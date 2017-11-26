@@ -34,7 +34,7 @@ Now to introduce Cauchy's Integral Theorem. This theorem concerns integrating ar
 <br>
 Cauchy's Theorem (For Star-shaped regions): Let D be a star-shaped region and let $f:D \rightarrow \mathbb{C}$ be holomorphic. Then for any closed path $\gamma$ in D, 
 $$\int_{\gamma}f =0$$ 
-The idea to proving this result will be to pick a point $z_0 \in D$ about which it is star shaped and then by defining a $F$ as $F(z) = int_{[z_0 \rightarrow z]}f(w)dw$ Which should give us $F'=f$ so we can then use the PATH INDEPENDENCE THEOREM above (specifically number 1) to show the result is true.
+The idea to proving this result will be to pick a point $z_0 \in D$ about which it is star shaped and then by defining a $F$ as $F(z) = \int_{[z_0 \rightarrow z]}f(w)dw$ Which should give us $F'=f$ so we can then use the PATH INDEPENDENCE THEOREM above (specifically number 1) to show the result is true.
 <br> <br>
 This is a little hard to tackle directly and we should try to prove some other things that will make it neater first.
 First let's try to prove this result around a more concrete path shape like a triangle which we can then use to prove the original result.
@@ -62,6 +62,74 @@ i.e. $lim_{z \rightarrow z_1} \frac{F(z)-F(z_1)}{z-z_1}=f(z_1)$
 <br>
 Looking at The numerator $F(z)-F(z_2) = \int_{[z_0 \rightarrow z]}f - \int_{[z_0 \rightarrow z_1]}f$
 <br>
-$= \int_{T}f - $
+If we were to draw out the three point we are talking about $z_0,z_1,z$ we could draw a triangle about them called T and so,
+<br>
+$= \int_{T}f - \int_{z \rightarrow z_1}f = \int_{z_1 \rightarrow z}f $ by the CIT for triangles. Using this equality for the numerator we can solve the equation 
+$$ | \frac{F(z)-F(z_1)}{z-z_1} -f(z_1)|$$
+to show it is less than a given $\epsilon$ using the approximation lemma for triangles meaning that $F'=f$ and by path independence theorem we have that $\int_{\gamma}f=0$!
+
+<br><br>
+Now a very interesting effect of this theoerem is that we gain a tool to use when comparing the value of an integral over paths that are inside one another (picture a closed loop $\gamma$ being a circle inside a larger closed path $\tau$ as a square around $\gamma$) then we can cut the space in between $gamma$ and $tau$ into a bunch of closed loops (check lecture notes for a good diagram of this). The result of this will be you get say, 4 closed loops that form the space between $gamma$ and $tau$, the sides of the loops that are "touching" inside the space will cancel out as they are the same line (hand wavey) and the sides of the paths on the outside are equal to $tau$ exactly and the inside of the closed paths are $-\gamma$ exactly meaning we get that a bunch of closed path interals (=0) are equal to $\int_{tau}f - \int_{gamma} $ $\Rightarrow $ they are the same! So we have proven that if we can draw a big closed path about a smaller closed path. or vice versa, where the properties of the function still hold we have that the value of the integral over the two paths is the same! Pretty cool seeing as these paths can be very different I'm sure. The general result follows.
+<br><br>  
+THEOREM: Let $z_1,z_2 \in \mathbb{C}$ and let $p_1,p_2 >0$ such that $p_1 >p_2 + |z_1-z_2|$. Suppose that there exists a $r_1>p_1$, $r_2 < p_2 $ then if $f$ is differentiable on $A:=\{z \in \mathbb{C}: |z-z_1|< r_1 \text{and} |z-z_2|>r_2\}$ then
+$$ \int_{C_{p_1(z_1)}}f = \int_{C_{p_2(z_2)}}f $$
+
+
+COROLLARY: The integral $\int_{C_r(a)} \frac{1}{z-z_0}dz$
+has value $2\pi$ if $z_0\in B_r(a)$ and value 0 if $z_0 \notin \bar{B_r(a)}$
+
 </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
